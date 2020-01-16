@@ -43,23 +43,44 @@ let changeAllBlocksToColor = (color, selector)=> {
 //     }
 //     return true;
 // } 
-let newGame = (difficulty) => {
-   let container = querySelector("#container");
+let createGame = (difficulty) => {
+   let container = document.querySelector("#container");
    colors = randomColors(difficulty);
+   let pickedColor = Math.floor(Math.random() * colors.length);
    for (let i = 0; i < colors.length; i++) {
        let square = document.createElement("div");
        square.className = "square";
        square.style.backgroundColor = colors[i]; 
        square.addEventListener("click", () => {
-           alert("clicked");
+           console.log("cllicked a square");
+           if (square.style.backgroundColor === colors[pickedColor]) {
+               console.log("yes");
+               let squares = document.querySelectorAll(".square");
+               console.log(squares);
+               for (let j = 0; j < squares.length; j++) {
+                   squares[j].style.backgroundColor = square.style.backgroundColor;
+               }
+           } else {
+               console.log("no");
+           }
        });
        container.appendChild(square);
    }
+   return true;
 }
-let pickedColor = 0;
-setup(5);
+let clearBoard = () => {
+    let container = document.querySelector("#container");
+    let square = document.querySelectorAll(".square");
+    for (let i = 0; i < square.length; i++) {
+        container.removeChild(square[i]);
+    }
+}
+
+
+
+
 let resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", () => {
-    newGame();
-    console.log(pickedColor);
+    clearBoard();
+    createGame(7);
 });
