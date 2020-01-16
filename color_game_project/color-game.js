@@ -66,7 +66,7 @@ let clearBoard = () => {
     for (let i = 0; i < square.length; i++) {
         container.removeChild(square[i]);
     }
-    document.querySelector("h1").style.backgroundColor= "#232323";
+    document.querySelector("h1").style.backgroundColor= "steelblue";
 }
 
 let startGame = (passed) => {
@@ -79,6 +79,11 @@ let resetButton = document.querySelector("#reset");
     resetButton.addEventListener("click", () => {
         startGame(_difficulty);
 });
+
+
+
+
+//Event listeners
 document.querySelector("#reset").addEventListener("click", () => {
     startGame(_difficulty);
 });
