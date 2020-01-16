@@ -29,24 +29,27 @@ let createGame = (difficulty) => {
        square.addEventListener("click", () => {
            if (square.style.backgroundColor === colors[pickedColor]) {
                msg.textContent = "Correct!";
+               document.querySelector("#reset").textContent = "Play Again?";
                let squares = document.querySelectorAll(".square");
                for (let j = 0; j < squares.length; j++) {
                    squares[j].style.backgroundColor = square.style.backgroundColor;
                }
+               document.querySelector("h1").style.backgroundColor = square.style.backgroundColor;
            } else {
               msg.textContent = "Wrong Answer";
+              square.style.backgroundColor = "#232323";
            }
        });
        container.appendChild(square);
    }
    return true;
 }
+
 let setDisplays = (color) => {
     document.querySelector("#message").textContent = "";
 
     {
         document.querySelector("#color-display").textContent = color;
-        document.querySelector("#color-display").style.color = color;
     }
 }
 
@@ -56,6 +59,7 @@ let clearBoard = () => {
     for (let i = 0; i < square.length; i++) {
         container.removeChild(square[i]);
     }
+    document.querySelector("h1").style.backgroundColor= "#232323";
 }
 
 let startGame = () => {
@@ -67,3 +71,12 @@ resetButton.addEventListener("click", () => {
     createGame(6);
 });
 startGame();
+
+document.querySelector("#easy").addEventListener("click", () => {
+    document.querySelector("#easy").className = "difficulty-selected";
+    document.querySelector("#hard").className = "";
+});
+document.querySelector("#hard").addEventListener("click", () => {
+    document.querySelector("#hard").className = "difficulty-selected";
+    document.querySelector("#easy").className = "";
+});
