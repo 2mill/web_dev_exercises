@@ -1,8 +1,15 @@
+let _difficulty = 3;
+
+
+
+
+
 let randomColor = () => {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
-    return `rgb(${r}, ${g}, ${b})`
+    let tester = `rgb(${r}, ${g}, ${b})`
+    return tester === "#232323" ? randomColor() : tester;
 }
 let randomColors = (count) => {
     let colors = [];
@@ -62,21 +69,29 @@ let clearBoard = () => {
     document.querySelector("h1").style.backgroundColor= "#232323";
 }
 
-let startGame = () => {
-    createGame(6);
-}
-let resetButton = document.querySelector("#reset");
-resetButton.addEventListener("click", () => {
+let startGame = (passed) => {
+    _difficulty = passed;
     clearBoard();
-    createGame(6);
-});
-startGame();
+    createGame(_difficulty);
+}
 
+let resetButton = document.querySelector("#reset");
+    resetButton.addEventListener("click", () => {
+        startGame(_difficulty);
+});
+document.querySelector("#reset").addEventListener("click", () => {
+    startGame(_difficulty);
+});
+
+
+startGame(_difficulty);
 document.querySelector("#easy").addEventListener("click", () => {
-    document.querySelector("#easy").className = "difficulty-selected";
-    document.querySelector("#hard").className = "";
+    document.querySelector("#easy").classList.add("difficulty-selected");
+    document.querySelector("#hard").classList.remove("difficulty-selected");
+    startGame(3)
 });
 document.querySelector("#hard").addEventListener("click", () => {
-    document.querySelector("#hard").className = "difficulty-selected";
-    document.querySelector("#easy").className = "";
+    document.querySelector("#hard").classList.add("difficulty-selected");
+    document.querySelector("#easy").classList.remove("difficulty-selected");
+    startGame(6);
 });
