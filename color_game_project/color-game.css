@@ -8,9 +8,13 @@ body {
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
+    transition: all .5s;
+    border-radius: 15%;
+    --webkit-transition: all 0.6s;
+    --moz-transition: all 0.6s;
 }
 #container {
-    margin: 0 auto;
+    margin: 20 auto;
     max-width: 600px;
 }
 
@@ -20,11 +24,20 @@ body {
     text-align: center;
     color: black;
 }
+#color-display {
+    font-size: 200%;
+}
+#message {
+    display: inline-block;
+    width: 20%;
+}
 h1, p {
     color: white;
 }
 h1 {
+    line-height: 1.1;
     font-weight: normal;
+    padding: 20px 0;
 }
 * {
     font-family: "Montserrate", "Avenir";
@@ -38,7 +51,22 @@ h1 {
 body {
     margin: 0;
 }
+button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+}
+button:hover {
+    background-color: steelblue;
+    color: white;
+    transition: all .3s;
+}
 .difficulty-selected {
-    background-color: blue; 
-
+    background-color:steelblue; 
+    color: white;
 }
