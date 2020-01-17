@@ -76,8 +76,9 @@ let startGame = (passed) => {
 }
 
 let resetButton = document.querySelector("#reset");
-    resetButton.addEventListener("click", () => {
-        startGame(_difficulty);
+resetButton.addEventListener("click", () => {
+    resetButton.textContent = "New Colors";
+    startGame(_difficulty);
 });
 
 
