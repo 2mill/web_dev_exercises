@@ -12,7 +12,7 @@ ul {
     margin: 0;
     padding: 0;
 }
-h1 img {
+h1 i{
     float: right;
 }
 li {
@@ -27,6 +27,17 @@ span {
     margin-right: 20px;
     text-align: center;
     color: white;
+    width: 0;
+    display: inline-block;
+    opacity: 0;
+}
+li:hover span {
+    width: 40px;
+    transition: linear 0.2s;
+    opacity: 1;
+}
+input {
+    border: 3px solid rgba(0,0,0,0);
 }
 input:focus {
     background: white;
