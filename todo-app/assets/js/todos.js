@@ -13,7 +13,7 @@ $("li").on("click", "span", function () {
 
 $("input[type='text']").keypress(function (event) {
     if (event.which === 13) {
-        $("ul").append("<li><span>X</span> " + $(this).val() + "</li>");
+        $("ul").append("<li><span><img src='assets/icons/trash-2.svg'/></span> " + $(this).val() + "</li>");
         $(this).val("");
     }
 })
