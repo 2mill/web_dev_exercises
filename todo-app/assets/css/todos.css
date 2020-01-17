@@ -1,0 +1,11 @@
+body {
+}
+#container {
+    border: 2px solid black;
+    margin: 0 auto;
+    width: 360px;
+}
+.completed {
+    color: gray;
+    text-decoration: line-through;
+}
